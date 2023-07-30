@@ -1,6 +1,8 @@
 package ru.netology.stats;
 
+
 public class StatsService {
+    long arithmeticMean   ;
     public long sum(long[] sales) {
         long total = 0;
         for (long sale : sales) {
@@ -9,10 +11,19 @@ public class StatsService {
         return total;
     }
 
-    public long averageSales(long[] sales) {
-        return sum(sales) / sales.length;
+    //среднее арифметическое продаж
+    public long average(long[] sales) {
+
+        long totalSale=0;
+        for (long sale : sales) {
+            totalSale+=sale ;
+            }
+        long averageSale=totalSale/12;
+        return averageSale;
+
     }
 
+    //максимальное значение продаж
     public int maxSaleMonth(long[] sales) {
         int monthMaximum = 0;
         for (int i = 0; i < sales.length; i++) {
@@ -24,6 +35,7 @@ public class StatsService {
         return monthMaximum;
     }
 
+    //минимальное значение продаж
     public int minSaleMonth(long[] sales) {
         int monthMinimum = 0;
         for (int i = 0; i < sales.length; i++) {
@@ -34,10 +46,12 @@ public class StatsService {
         return monthMinimum;
     }
 
+    // количество месяцев ниже среднего
     public int salesBelowAverage(long[] sales) {
         int counterBelow = 0;
         for (long sale : sales) {
-            if (sale < sum(sales) / sales.length) {
+
+            if (sale < average(sales)) {
                 counterBelow++;
 
             }
@@ -45,10 +59,11 @@ public class StatsService {
         return counterBelow;
     }
 
+    //количество месяцев выше среднего
     public int salesAboveAverage(long[] sales) {
         int counterAbove = 0;
         for (long sale : sales) {
-            if (sale > averageSales(sales)) {
+            if (sale > average(sales)) {
                 counterAbove++;
             }
         }
