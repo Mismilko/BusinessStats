@@ -2,7 +2,8 @@ package ru.netology.stats;
 
 
 public class StatsService {
-    long arithmeticMean   ;
+    long arithmeticMean;
+
     public long sum(long[] sales) {
         long total = 0;
         for (long sale : sales) {
@@ -14,11 +15,11 @@ public class StatsService {
     //среднее арифметическое продаж
     public long average(long[] sales) {
 
-        long totalSale=0;
+        long totalSale = 0;
         for (long sale : sales) {
-            totalSale+=sale ;
-            }
-        long averageSale=totalSale/12;
+            totalSale += sale;
+        }
+        long averageSale = totalSale / 12;
         return averageSale;
 
     }
